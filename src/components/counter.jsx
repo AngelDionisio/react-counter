@@ -13,13 +13,19 @@ class Counter extends Component {
     fontWeight: "bold"
   };
 
+  handleIncrement = () => {
+    this.setState({ count: this.state.count + 1 });
+  }
+
   render() {
     return (
       <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="bt btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement}
+          className="bt btn-secondary btn-sm">Increment</button>
         <ul>
-          { this.state.tags.map((tag) => <li key={tag}>{tag}</li>) }
+          {this.state.tags.map((tag) => <li key={tag}>{tag}</li>)}
         </ul>
       </div>
     );
